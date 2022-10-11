@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>2nd Graph</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/dfeab84421.js" crossorigin="anonymous"></script> 
+    <script src="https://d3js.org/d3.v4.js"></script>
     
 
     
@@ -21,24 +23,29 @@
           <label for="check" class="hamburger"><i class="fa-solid fa-bars"></i></label>
             <label for="logo" class="logo">Esona Ncobela</label><class="p-name"></class>
             <ul>
-             <li class="u-url"><a href="index.html" class="active">Home</a></li>
+             <li class="u-url"><a href="index.html" class="btn-link">Home</a></li>
              <li class="u-url"><a href="Blog.html" class="btn-link">Blog</a></li>
              <li class="u-url"><a href="design.html" class="btn-link">Design</a></li>
-             <li class="u-url"><a href="Data-V.html" class="btn-link">Data-Visualisations</a></li>
+             <li class="u-url"><a href="Data-V.html" class="active">Data-Visualisations</a></li>
              <li class="u-url"><a href="Data-A.html" class="btn-link">Data-Art</a></li>
           
             </ul>
         </nav>
     </header>
     <main>
-      <header>
-        <div class="Content">
-          <h1 class="Welcome">WELCOME</h1>
-          <p class="open-caption">to my Homepage for WSOA3028A-Interactive Media IIIA.<br> I am Esona, the designer. Without any further ado, <a class="blog" href="Blog.html">let's get started.</a></li></p>
-          <script src="./IndeX.js"></script>
-        </div>
-        
-      </header>
+        <section id="2ndGraph">
+            <h1 class="heading">Graph</h1>
+            <div class="graph">
+                <div id="data2"></div>
+                <svg></svg>
+            </div>
+            <script src="Graph2.js"></script>
+        </section>
+        <section>
+            <li>
+                <a href="Data-V.html" class="btn-link"><button class="back">Back</button></a>
+            </li>
+        </section>
     </main>
 
     <!-- 
