@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
 </head>
 <body>
     <div id="page-container">
@@ -18,24 +19,28 @@
 
 
 
-            <label for="logo" class="logo">Esona Ncobela</label><class="p-name">
+            <label for="logo" class="logo">Digital Afrika</label><class="p-name">
             
             <ul>
-             <li class="u-url"><a href="index.html" class="btn-link">Home</a></li>
-             <li class="u-url"><a href="Blog.html" class="btn-link">Blog</a></li>
-             <li class="u-url"><a href="design.html" class="btn-link">Design</a></li>
-             <li class="u-url"><a href="Data-V.html" class="btn-link">Data-Visualisations</a></li>
-             <li class="u-url"><a href="Data-A.html" class="active">Data-Art</a></li>
+             <li class="navigation"><a href="index.html" class="btn-link">Home</a></li>
+             <li class="navigation"><a href="Blog.html" class="btn-link">Blog</a></li>
+             <li class="navigation"><a href="design.html" class="btn-link">Design</a></li>
+             <li class="navigation"><a href="Data-V.html" class="btn-link">Data-Visualisations</a></li>
+             <li class="navigation"><a href="Data-A.html" class="active">Data-Art</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1 class="heading">Placeholder</h1>
-        <article>
-        <div class="e-content">
-            <img src="PicsArt_10-27-07.35.11.jpg" class="image"><class="u-photo"></class>
+        <h1 class="heading">Data Art</h1>
+        <div class="graph">
+            <p>Price of units of data</p>
+            <svg width="460" height="460"></svg>
+            <script src="https://d3js.org/d3.v4.min.js"></script>
+            <script src="https://d3js.org/d3-contour.v1.min.js"></script>
+            <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+                      
         </div>
-        </article>
+        <script src="D_Art.js"></script>
     </main>
 
     <!-- 
@@ -47,14 +52,7 @@
                 <p class="p-author">Author: Esona Ncobela<br>
                    
                   
-                 
-              
-           
-          
-           
-        
-           
-   
+
    
      </footer>
     </div>

@@ -10,7 +10,7 @@ const PADDING = { top: 20, bottom: 20}
 const WIDTH = 600;
 const HEIGHT = 400 - PADDING.top - PADDING.bottom;
 
-const chartContainer = d3.select('svg')
+const chartContainer = d3.select('#G1')
 .attr('width', WIDTH)
 .attr('height', HEIGHT + HEIGHT + PADDING.top + PADDING.bottom)
 ;

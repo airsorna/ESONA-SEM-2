@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3rd Graph</title>
     <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <script src="https://kit.fontawesome.com/dfeab84421.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.js"></script> 
     
@@ -20,13 +20,13 @@
         <nav>
           <input type="checkbox" id="check" />
           <label for="check" class="hamburger"><i class="fa-solid fa-bars"></i></label>
-            <label for="logo" class="logo">Esona Ncobela</label><class="p-name"></class>
+            <label for="logo" class="logo">Digital Afrika</label><class="p-name"></class>
             <ul>
-             <li class="u-url"><a href="index.html" class="btn-link">Home</a></li>
-             <li class="u-url"><a href="Blog.html" class="btn-link">Blog</a></li>
-             <li class="u-url"><a href="design.html" class="btn-link">Design</a></li>
-             <li class="u-url"><a href="Data-V.html" class="active">Data-Visualisations</a></li>
-             <li class="u-url"><a href="Data-A.html" class="btn-link">Data-Art</a></li>
+             <li class="navigation"><a href="index.html" class="btn-link">Home</a></li>
+             <li class="navigation"><a href="Blog.html" class="btn-link">Blog</a></li>
+             <li class="navigation"><a href="design.html" class="btn-link">Design</a></li>
+             <li class="navigation"><a href="Data-V.html" class="active">Data-Visualisations</a></li>
+             <li class="navigation"><a href="Data-A.html" class="btn-link">Data-Art</a></li>
           
             </ul>
         </nav>
@@ -35,8 +35,10 @@
         <section id="3ndGraph">
             <h1 class="heading">Graph 3</h1>
             <div class="graph">
-                <div id="interdata"></div>
-                <svg></svg>
+              <script src="//d3js.org/d3.v3.min.js"></script>
+              <svg id="InterData"></svg>
+              
+              
             </div>
             <script src="Graph3.js"></script>
         </section>
