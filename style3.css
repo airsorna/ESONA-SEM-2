@@ -298,3 +298,39 @@ section li a {
 .domain {
     display: none;
   }
+
+  .triangles {
+    fill: darkblue;
+    
+  }
+  
+  .links {
+    stroke: #000;
+  }
+  
+  .sites {
+    fill: #000;
+    stroke: #fff;
+  }
+  
+  .triangles .primary {
+    fill: #f00;
+  }
+  
+  .links .primary {
+    stroke: #fff;
+  }
+  
+  .sites :first-child {
+    fill: #fff;
+  }
+
+  .D2art {
+    padding-left: 300px;
+  }
+  
+  canvas {
+    background-color: rgba(127, 255, 212, 0.017);
+  }
+
+  

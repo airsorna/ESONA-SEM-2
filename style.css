@@ -129,6 +129,10 @@ article {
     font-style: italic;
     font-weight: bold;
 }
+.e-content h4 {
+  font-size: 17px;
+  font-weight: lighter;
+}
 
 .heading {
     font-size: 50px;
@@ -175,6 +179,11 @@ article {
     margin-left: 550px;
     
     
+}
+.CaptioN {
+  margin-top: -55px;
+  margin-left: 190px;
+  margin-bottom: 50px;
 }
 
 .Myimg {
@@ -300,6 +309,13 @@ section li a {
     top: 21%;
     border: 2px solid rgb(128, 248, 0);
     background-color: rgba(220, 254, 255, 0.283);
+}
+#post5 {
+  left: 92%;
+  top: 27%;
+  border: 2px solid rgb(25, 0, 255);
+  background-color: rgba(220, 254, 255, 0.283);
+
 }
 
 .bar {

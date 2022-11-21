@@ -1,62 +1,54 @@
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height"),
-    margin = {top: 20, right: 30, bottom: 30, left: 40};
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height,
+    radius = 2.5,
+    minDistance = 80,
+    maxDistance = 100,
+    minDistance2 = minDistance * minDistance,
+    maxDistance2 = maxDistance * maxDistance;
 
-var x = d3.scaleLog()
-    .domain([2e-1, 5e0])
-    .rangeRound([margin.left, width - margin.right]);
+var tau = 2 * Math.PI,
+    n = 170,
+    particles = new Array(n);
 
-var y = d3.scaleLog()
-    .domain([3e2, 2e4])
-    .rangeRound([height - margin.bottom, margin.top]);
+for (var i = 0; i < n; ++i) {
+  particles[i] = {
+    x: width * Math.random(),
+    y0: height * Math.random(),
+    v: 0.2 * (Math.random() - 0.1)
+  };
+}
 
-var color = d3.scaleSequential(d3.interpolateYlGnBu)
-    .domain([0, 1.8]); // Points per square pixel.
+d3.timer(function(elapsed) {
+  context.clearRect(0, 0, width, height);
 
-svg.append("g")
-    .attr("transform", "translate(0," + (height - margin.bottom) + ")")
-    .call(d3.axisBottom(x).ticks(null, ".1f"))
-  .select(".tick:last-of-type text")
-  .select(function() { return this.parentNode.appendChild(this.cloneNode()); })
-    .attr("y", -3)
-    .attr("dy", null)
-    .attr("font-weight", "bold")
-    .text("Units");
+  for (var i = 0; i < n; ++i) {
+    for (var j = i + 1; j < n; ++j) {
+      var pi = particles[i],
+          pj = particles[j],
+          dx = pi.x - pj.x,
+          dy = pi.y - pj.y,
+          d2 = dx * dx + dy * dy;
+      if (d2 < maxDistance2) {
+        context.globalAlpha = d2 > minDistance2 ? (maxDistance2 - d2) / (maxDistance2 - minDistance2) : 1;
+        context.beginPath();
+        context.moveTo(pi.x, pi.y);
+        context.lineTo(pj.x, pj.y);
+        context.stroke();
+      }
+    }
+  }
 
-svg.append("g")
-    .attr("transform", "translate(" + margin.left + ",0)")
-    .call(d3.axisLeft(y).ticks(null, ".1s"))
-  .select(".tick:last-of-type text")
-  .select(function() { return this.parentNode.appendChild(this.cloneNode()); })
-    .attr("x", 3)
-    .attr("text-anchor", "start")
-    .attr("font-weight", "bold")
-    .text("Price (USD)");
-    
+  context.globalAlpha = 1;
 
-d3.tsv("diamonds.tsv", function(d) {
-  d.carat = +d.carat;
-  d.price = +d.price;
-  return d;
-}, function(error, diamonds) {
-  if (error) throw error;
-
-  svg.insert("g", "g")
-      .attr("fill", "none")
-      .attr("stroke", "#000")
-      .attr("stroke-width", 0.5)
-      .attr("stroke-linejoin", "round")
-    .selectAll("path")
-    .data(d3.contourDensity()
-        .x(function(d) { return x(d.carat); })
-        .y(function(d) { return y(d.price); })
-        .size([width, height])
-        .bandwidth(10)
-      (diamonds))
-    .enter().append("path")
-      .attr("fill", function(d) { return color(d.value); })
-      .attr("d", d3.geoPath());
-      
-      
+  for (var i = 0; i < n; ++i) {
+    var p = particles[i];
+    p.y = p.y0 + elapsed * p.v;
+    if (p.y > height + maxDistance) p.x = width * Math.random(), p.y0 -= height + 2 * maxDistance;
+    else if (p.y < -maxDistance) p.x = width * Math.random(), p.y0 += height + 2 * maxDistance;
+    context.beginPath();
+    context.arc(p.x, p.y, radius, 0, tau);
+    context.fill();
+  }
 });
